@@ -7,18 +7,32 @@ public class NewBehaviourScript : MonoBehaviour
     public float moveSpeed = 5.0f; // 通常の移動速度（秒速）
     public float dashSpeedMultiplier = 2.0f; // ダッシュ時の速度倍率
     public float jumpForce = 7.0f; // ジャンプ力
+    public float rotationSpeed = 10.0f; // 回転速度
 
     private bool isGrounded; // 地面にいるかどうかのフラグ
     private Rigidbody rb; // Rigidbodyコンポーネンスへの参照
+
+    private Animator animator; // アニメーション
 
     // Start is called before the first frame-update
     void Start()
     {
         Application.targetFrameRate = 60; // ターゲットフレームレートを60FPSに設定
-        rb = GetComponent<Rigidbody>(); // Rigidbodyコンポーネントを取得
+        // Rigidbodyコンポーネントを取得
+        rb = GetComponent<Rigidbody>();
         if (rb == null)
         {
             Debug.LogError("Rigidbody component not found on this GameObject. Please add a Rigidbody to the player.");
+        }
+        // Animatorコンポーネントを取得
+        animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            animator = GetComponentInChildren<Animator>();
+        }
+        if (animator == null)
+        {
+            Debug.LogError("Animator component not found on this GameObject or its children.");
         }
     }
 
@@ -33,6 +47,7 @@ public class NewBehaviourScript : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false; // ジャンプしたので地面から離れた状態にする
         }
+
     }
 
     // FixedUpdateは物理演算の更新に適しています
@@ -84,8 +99,28 @@ public class NewBehaviourScript : MonoBehaviour
         newVelocity.y = rb.velocity.y; // 現在のY軸速度（重力やジャンプ）を維持
         rb.velocity = newVelocity;
 
-        // 回転処理は完全に削除しました。
-        // プレイヤーの向きはキー入力で変化しません。
+        // --- 向きの変更 ---
+        // moveInput がゼロでない場合（つまり移動入力がある場合）のみ向きを変える
+        if (moveInput != Vector3.zero)
+        {
+            // 移動方向へ向かうQuaternionを作成
+            // Y軸固定
+            Quaternion targetRotation = Quaternion.LookRotation(new Vector3(moveInput.x, 0, moveInput.z));
+
+            // 現在の回転から目標の回転へ滑らかに補間
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+        }       
+
+        // --- アニメーション ---
+        if (animator != null)
+        {
+            // 移動しているかどうかを判定
+            // moveInputのmagnitudeが0より大きい場合、移動していると判断
+            // Rigidbodyを使っているので、rb.velocityの水平方向のmagnitudeを使ってもよい
+            bool isWalking = moveInput.magnitude > 0.01f; // 小さな値でしきい値を設ける
+            // AnimatorのParametersを更新
+            animator.SetBool("isWalking", isWalking);
+        }
     }
 
     //--- 地面との接触判定 ---
