@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8357158720059490580}
   - component: {fileID: 8357158720059490579}
   - component: {fileID: 1529443150932361498}
+  - component: {fileID: -8095173068248159115}
   m_Layer: 0
   m_Name: CandyBullet
   m_TagString: Untagged
@@ -114,3 +115,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &-8095173068248159115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8357158720059490578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0890c54739b764845b4bba28aa88223d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cruiseTime: 0.6
+  slowTime: 0.5
+  accel: 10
+  lifeTime: 10
