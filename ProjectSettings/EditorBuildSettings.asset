@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/ThirdStage.unity
     guid: 4edae26d2ab9ef346a30c867167cd670
   - enabled: 0
-    path: Assets/Scenes/StageScene.unity
+    path: Assets/Scenes/StartScene.unity
     guid: aedb83f1c7823094a83104ce5daebccf
   - enabled: 1
     path: Assets/Scenes/MillefeuilleScene.unity
@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CandyStage.unity
     guid: c9f8e70ee90b2224799aca8e35f07c8e
   - enabled: 1
-    path: Assets/Scenes/PuddingScene.unity
+    path: Assets/Scenes/KonpeitoScene.unity
     guid: 6801f22bfcd277149845a39175d139b6
+  - enabled: 1
+    path: Assets/Scenes/GoalScene.unity
+    guid: 6d766ecbd76b174468bfe059923f15e9
   m_configObjects: {}
