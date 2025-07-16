@@ -1101,7 +1101,7 @@ MonoBehaviour:
   caramel: {fileID: 1657966172}
   caramelDuration: 1.2
   fadeDuration: 0.8
-  nextSceneName: PuddingScene
+  nextSceneName: KonpeitoScene
 --- !u!4 &1530390937
 Transform:
   m_ObjectHideFlags: 0
