@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.172768, g: 0.21589167, b: 0.29782546, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276807, g: 0.21589197, b: 0.29782572, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -986,6 +986,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2481797596033361554, guid: 4daecf664b294f94b80f543c11c8223c, type: 3}
+      propertyPath: nextSceneName
+      value: MillefeuilleScene
+      objectReference: {fileID: 0}
     - target: {fileID: 2481797596623362198, guid: 4daecf664b294f94b80f543c11c8223c, type: 3}
       propertyPath: m_RootOrder
       value: 0
