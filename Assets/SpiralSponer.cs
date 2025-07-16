@@ -1,3 +1,4 @@
+// SpiralSponer.cs  ※角度を回しながら等速で発射
 using UnityEngine;
 
 public class SpiralSponer : MonoBehaviour
@@ -8,9 +9,8 @@ public class SpiralSponer : MonoBehaviour
     public float fireInterval = 0.05f;
     public float angleStep = 10f;
 
-    float currentAngle = 0f;
-    float currentSpeed = 0f;
-    float timer = 0f;
+    float currentAngle;
+    float timer;
 
     void Update()
     {
@@ -20,25 +20,18 @@ public class SpiralSponer : MonoBehaviour
             FireBullet();
             timer = 0f;
             currentAngle += angleStep;
-            currentSpeed += 1f;    //加速
         }
     }
 
-void FireBullet()
-{
-    float rad = currentAngle * Mathf.Deg2Rad;
+    void FireBullet()
+    {
+        float rad = currentAngle * Mathf.Deg2Rad;
+        Vector3 dir = new Vector3(Mathf.Cos(rad), 0f, Mathf.Sin(rad));   // XZ 平面へ
 
-   
-    Vector3 dir = new Vector3(Mathf.Cos(rad), 0f, Mathf.Sin(rad));  //xz平面上を進む（y = 0f）
+        Vector3 spawnPos = transform.position;
 
-  
-    Vector3 spawnPos = transform.position;
-
-    GameObject b  = Instantiate(bulletPrefab, spawnPos, Quaternion.identity);
-    Rigidbody rb = b.GetComponent<Rigidbody>();
-
-    rb.velocity = new Vector3(dir.x, 0f, dir.z) * bulletSpeed;
-
-
-}
+        GameObject b  = Instantiate(bulletPrefab, spawnPos, Quaternion.identity);
+        Rigidbody rb = b.GetComponent<Rigidbody>();
+        rb.velocity  = dir.normalized * bulletSpeed;                     
+    }
 }
