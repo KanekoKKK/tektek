@@ -20,7 +20,7 @@ public class move_wall : MonoBehaviour
         myTransform = this.transform;
         position_start = myTransform.position;
         position_now = position_start;
-        GetComponent<Renderer>().material.color = Color1; // オブジェクトの色を Color1 にする
+        // GetComponent<Renderer>().material.color = Color1; // オブジェクトの色を Color1 にする
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class move_wall : MonoBehaviour
             if (position_now.x - position_start.x > 5)
             {
                 flag = 1;
-                GetComponent<Renderer>().material.color = Color2; // オブジェクトの色を Color2 にする
+                // GetComponent<Renderer>().material.color = Color2; // オブジェクトの色を Color2 にする
             }
             myTransform.position = position_now;
         }
@@ -43,7 +43,7 @@ public class move_wall : MonoBehaviour
             if (position_start.x - position_now.x > 5)
             {
                 flag = 0;
-                GetComponent<Renderer>().material.color = Color1; // オブジェクトの色を Color1 にする
+                // GetComponent<Renderer>().material.color = Color1; // オブジェクトの色を Color1 にする
             }
             myTransform.position = position_now;
         }
