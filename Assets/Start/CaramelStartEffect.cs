@@ -17,7 +17,7 @@ public class CaramelStartEffect : MonoBehaviour
     void Start()
     {
         startPos = caramel.anchoredPosition;
-        endPos = new Vector2(startPos.x, 0); // 画面上にとろ〜り
+        endPos = new Vector2(startPos.x, -100); // 画面上にとろ〜り
     }
 
     public void OnStart()
