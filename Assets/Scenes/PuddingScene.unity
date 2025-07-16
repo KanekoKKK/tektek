@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.172768, g: 0.21589167, b: 0.29782546, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276807, g: 0.21589197, b: 0.29782572, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -681,6 +681,7 @@ MonoBehaviour:
   rewindDuration: 3
   pauseAfterRewindDuration: 3
   livesText: {fileID: 1689936456}
+  puddingImages: []
 --- !u!54 &484752531
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -820,7 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117b7bc730c8d094dae61efd0bf7de6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: SecondStage
+  nextSceneName: CandyStage
 --- !u!1 &562195359
 GameObject:
   m_ObjectHideFlags: 0
