@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement; 
 using System.Collections; 
 using TMPro; // TextMeshProUGUIを使用する場合に必要。Text (Legacy) なら不要。
+using UnityEngine.UI;
 
 public class PlayerHealthAndRewind : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class PlayerHealthAndRewind : MonoBehaviour
     public TextMeshProUGUI livesText; // TextMeshProUGUIを使用する場合
     // public Text livesText;           // Text (Legacy) を使用する場合
     // --- 追加部分 ---
+
+    //追加
+    public Image[] puddingImages;
+    //追加
 
     void Start()
     {
@@ -60,6 +65,9 @@ public class PlayerHealthAndRewind : MonoBehaviour
             remainingLives--; // 残機を減らす
             UpdateLivesDisplay(); // 残機表示を更新
             // --- 変更部分 ---
+
+            //追加
+            puddingImages[remainingLives].enabled = false;
 
             Debug.Log("Returning to start position.");
             transform.position = initialPosition; 
